@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Cadastro Animal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+   <!-- Favicons -->
+   <link href="assets/img/logo.png" rel="icon">
+   <link href="assets/img/logo.png" rel="apple-touch-icon">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  
+ 
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      
+      <!-- logo -->
+      <h1 class="logo me-auto"><a href="index.html">Wild<br>Life</a></h1>
+      
+       <!-- Menu -->
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="active" href="index.html">Inicio</a></li>          
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="infoAnimais.html">Informações Animais</a></li>
+          <li><a href="Rank.html">Ranking</a></li>
+          <li><a href="sobreNos.html">Sobre</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+      
+
+    </div>
+  </header>
+  <!-- End Header -->
+
+  
+  <main id="main">
+
+    <br><br><br><br><br>
+
+    <!--Botão com informações sobre o cadastro-->
+    <div class="registration-form">
+      <p>
+        <a class="btn btn-light" style="max-width: 225px;" data-bs-toggle="collapse" href="#cssss" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Cadastro 
+        </a>
+      </p>   
+         <div class="collapse" id="cssss">
+          
+          <div class="card card-body margin-top">
+            Cada cadastro e feito para um animal, preencha os campos abaixo e responda os campos solicitados para um melhor controle de informações. 
+          </div>
+        
+           <!-- Abre galeria de fotos para enviar o arquivo -->
+          <section>
+          <div class="centralizar margin-top">
+            <button
+                id="botaoClick"
+                onclick="takePhoto()"
+                class="btn btn-light"
+                style="display: none;">
+                Salvar foto</button>
+            <img
+                id="imagemExibida"
+                style="height: 150px; width: 150px; border-radius: 50%; border: 1px solid #ffffff; display: none;">
+        </div>
+    
+    </div>
+    
+    <input type="file" id="inputFile" accept="image/*">
+     
+    <!-- botão de selecionar imagem-->
+    <div class="centralizar">
+        <button class="btn btn-outline-primary" id="escolherTirarFoto" onclick="selectImage()">
+            <i class="bi bi-camera"></i>
+            Escolher Foto
+        </button>
+    </div>
+    <img id="selectedImage"
+     style="display: none; text-align: center; height: 200px; width: 180px; border-radius: 50%; border: 1px solid #ffffff; max-width: 300px;">
+     
+    </div>
+        </section>
+
+      <!-- Formulário de informações sobre o animal-->
+        <h2>Registro do Animal</h2><br>
+        <div class="registration">
+          <form id="meuFormulario" onsubmit="salvarInformacoes(event)">
+          
+            <label for="docIdentificacao">Documento de Identificação:</label>
+            <input type="text" id="docIdentificacao" name="docIdentificacao" placeholder="Digite seu CPF" required>
+                <br>
+    
+            <label for="datetimeLocal">Data e Hora de Entrada:</label>
+            <input type="datetime-local" id="datetimeLocal" name="datetimeLocal" required>
+                <br>
+    
+            <label for="responsavelEntrega">Responsável pela Entrega:</label>
+            <select id="responsavelEntrega" name="responsavelEntrega">
+                  <option value="cipoma">CIPOMA</option>
+                  <option value="ibama">IBAMA</option>
+                  <option value="depoma">DEPOMA</option>
+                  <option value="cprh">CPRH</option>
+                  <option value="outros">Outros</option>
+              </select>
+                 <br>
+    
+            <label for="tipoEntrega">Tipo de Entrega:</label>
+            <select id="tipoEntrega" name="tipoEntrega">
+                  <option value="voluntaria">Voluntária</option>
+                  <option value="resgate">Resgate</option>
+                  <option value="apreensao">Apreensão</option>
+                  <option value="outross">Outros</option>
+            </select>
+                <br>
+    
+            <label for="nome">Nome Animal:</label>
+            <input type="text" id="nome" name="nome" placeholder="Nome do animal" required>
+                <br>
+            <label for="cientifico">Nome Científico:</label>
+            <input type="text" id="cientifico" name="cientifico" placeholder="Nome Científico" required>
+                <br>
+    
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo">
+                <option value="macho">Macho</option>
+                <option value="femea">Fêmea</option>
+            </select>
+                <br> 
+    
+           <label for="encontrado">Onde foi Encontrado:</label>
+           <input type="text" id="encontrado" name="encontrado" placeholder="Onde foi encontrado?">
+                <br>
+    
+           <label for="cativeiro">Local de Cativeiro:</label>
+           <input type="text" id="cativeiro" name="cativeiro" placeholder="Qual o destino?">
+                 <br>
+    
+            <label for="tempoCativeiro">Tempo de Cativeiro:</label>
+            <input type="text" id="tempoCativeiro" name="tempoCativeiro" placeholder="Quanto tempo vai passar?">
+                <br>
+    
+            <label for="estadoSaude">Estado de Saúde:</label>
+            <select id="estadoSaude" name="estadoSaude">
+                    <option value="saudavel">Saudável</option>
+                    <option value="regular">Regular</option>
+                    <option value="cuidadosmedicos">Cuidados Médicos</option>
+                </select>
+                <br>
+    
+            <label for="numeroRegistro">Número de Registro:</label>
+            <input type="text" id="numeroRegistro" name="numeroRegistro" placeholder="Número de registro animal">
+                <br>
+    
+            <label for="observacoes">Observações sobre o Animal:</label>
+            <textarea id="observacoes" name="observacoes" placeholder="Descreva o estado de como encontrou o animal" rows="4"></textarea>
+                <br>
+    
+             <label for="entreguePor">Entregue Por:</label>
+            <input type="text" id="entreguePor" name="entreguePor" placeholder="Resgatado por">
+                <br>
+    
+            <label for="recebidoPor">Recebido Por:</label>
+            <input type="text" id="recebidoPor" name="recebidoPor" placeholder="Acolhido por">
+                <br>
+    
+            <div style="text-align: right;">
+              <button type="submit">Finalizar</button>
+                
+          </div>
+        </form>
+      </div>
+        
+          </div>
+        
+      
+      </form>
+    </div>
+  
+</div>
+
+<script>
+     function salvarInformacoes(event) {
+    event.preventDefault();
+
+    // Obter os valores do formulário
+    
+    var docIdentificacao = document.getElementById("docIdentificacao").value;
+    var datetimeLocal = document.getElementById("datetimeLocal").value;
+    var responsavelEntrega = document.getElementById("responsavelEntrega").value;
+    var tipoEntrega = document.getElementById("tipoEntrega").value;
+    var nome = document.getElementById("nome").value;
+    var cientifico = document.getElementById("cientifico").value;
+    var sexo = document.getElementById("sexo").value;
+    var encontrado = document.getElementById("encontrado").value;
+    var cativeiro = document.getElementById("cativeiro").value;
+    var tempoCativeiro = document.getElementById("tempoCativeiro").value;
+    var estadoSaude = document.getElementById("estadoSaude").value;
+    var numeroRegistro = document.getElementById("numeroRegistro").value;
+    var observacoes = document.getElementById("observacoes").value;
+    var entreguePor = document.getElementById("entreguePor").value;
+    var recebidoPor = document.getElementById("recebidoPor").value;
+        
+
+    // Salvar as informações no localStorage
+    
+    localStorage.setItem("docIdentificacao", docIdentificacao);
+    localStorage.setItem("datetimeLocal", datetimeLocal);
+    localStorage.setItem("responsavelEntrega", responsavelEntrega);
+    localStorage.setItem("tipoEntrega", tipoEntrega);
+    localStorage.setItem("nome", nome);
+    localStorage.setItem("cientifico", cientifico);
+    localStorage.setItem("sexo", sexo);
+    localStorage.setItem("encontrado", encontrado);
+    localStorage.setItem("cativeiro", cativeiro);
+    localStorage.setItem("tempoCativeiro", tempoCativeiro);
+    localStorage.setItem("estadoSaude", estadoSaude);
+    localStorage.setItem("numeroRegistro", numeroRegistro);
+    localStorage.setItem("observacoes", observacoes);
+    localStorage.setItem("entreguePor", entreguePor);
+    localStorage.setItem("recebidoPor", recebidoPor);
+
+
+    // Redirecionar para a próxima página
+    window.location.href = "cadastrados.html";
+        }
+
+  function selectImage() {
+    const inputFile = document.getElementById("inputFile");
+    const selectedImage = document.getElementById("selectedImage");
+
+    inputFile.onchange = function (e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          selectedImage.src = e.target.result;
+          selectedImage.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+
+    inputFile.click();
+  }
+</script>
+</main>
+
+<style>
+
+#selectedImage {
+
+margin: 0 auto; 
+display: block; 
+margin-top: 20px;
+}
+
+h2{
+  margin-right: 3rem;
+}
+  body {
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient( to top, yellow, green);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+  }
+
+  .registration-form {
+      
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+      margin-right: 3rem;
+      
+  }
+  .registration{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      margin-right: 3rem;
+    
+  }
+
+  
+
+  h2 {
+      margin-top: auto;
+      text-align: center;
+      
+      
+  }
+
+  label {
+      display: block;
+      margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #615f5f;
+      border-radius: 5px;
+  }
+
+  button {
+      width: 100%;
+      padding: 10px;
+      background-color: #078856;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;;
+  }
+
+  button:hover {
+      background-color: #056e47;
+  }
+</style>
+
+
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

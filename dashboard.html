@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>DashBoard</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+
+      <!-- Favicons -->
+   <link href="assets/img/logo.png" rel="icon">
+   <link href="assets/img/logo.png" rel="apple-touch-icon">
+
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+
+        
+    </head>
+
+    <body>
+
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top">
+            <div class="container d-flex align-items-center">
+                
+                <!--logo-->
+                <h1 class="logo me-auto">
+                    <a href="index.html">Wild<br>Life</a>
+                </h1>
+        
+                <!--Menu-->
+                <nav id="navbar" class="navbar order-last order-lg-0">
+                    <ul>
+                        <li><a class="active" href="index.html">Inicio</a></li>          
+                        <li><a href="cadastroanimal2.html"><strong>Cadastrar Animal</strong></a></li>
+                        <li><a href="infoAnimais.html">Informações Animais</a></li>
+                        <li><a href="Rank.html">Ranking</a></li>
+                        <li><a href="sobreNos.html">Sobre</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+            
+                <!--Icone de bem vindo a pagina-->
+                <a href="dashboard.html" class="get-started-btn">Bem vindo!</a>
+
+            </div>
+        </header>
+
+        <!-- End Header -->
+
+        <main id="main">
+
+            <!-- ======= Breadcrumbs ======= -->
+            <br><br><br><br>
+
+        
+            <!--Requisição para ligar a camera do usuário-->
+            <section id="dashboard" class="dashboard">
+                <div data-aos="fade-up">
+                    <input type="file" id="fileInput" style="display: none;">
+                    <div id="imagemSelecionada"></div>
+                </div>
+
+                <div class="container" data-aos="fade-up">
+                   
+                </div>
+
+                <div data-aos="fade-up">
+                    <input type="file" id="fileInput" style="display: none;">
+                    <div class="centralizar">
+                        <button
+                            class="btn btn-outline-primary"
+                            id="botaoTirarFoto"
+                            onclick="getStream()">
+                            <i class="bi bi-camera"></i>
+                            Ligar Camera</button>
+                    </div>
+
+                    <div id="imagemSelecionada" class="centralizar margin-botton">
+                        <video
+                            autoplay="autoplay"
+                            id="divdevideo"
+                            style="height: 150px; width: 150px; border-radius: 50%; border: 1px solid #ffffff; display: none;"></video>
+
+                    </div>
+
+                    <!--Requisição para abrir a galeria do celular ou computador-->
+                    <div class="centralizar margin-top">
+                        <button
+                            id="botaoClick"
+                            onclick="takePhoto()"
+                            class=" btn btn-outline-success"
+                            style="display: none;">
+                            Salvar foto</button>
+                        <img
+                            id="imagemExibida"
+                            style="height: 150px; width: 150px; border-radius: 50%; border: 1px solid #ffffff; display: none;">
+                    </div>
+
+                </div>
+
+                <input type="file" id="inputFile" accept="image/*">
+                <div class="centralizar">
+                    <button class="btn btn-outline-primary" id="escolherTirarFoto" onclick="selectImage()">
+                        <i class="bi bi-camera"></i>
+                        Escolher Foto
+                    </button>
+                </div>
+                <img id="selectedImage"
+                 style="display: none; text-align: center; height: 200px; width: 180px; border-radius: 50%; border: 1px solid #ffffff; max-width: 300px;">
+                 
+                
+            </section>
+
+            
+            <!-- End Breadcrumbs -->
+
+            <!-- ======= Informações do usuário Capitadas ======= -->
+            <section id="dashboard" class="dashboard">
+                <div data-aos="fade-up"></div>
+
+                <div class="container" data-aos="fade-up">
+
+                    <div class="row mt-5">
+
+                        <div class="col-lg-4">
+                            <div class="info">
+                                <div class="address">
+                                    <i class="bi bi-alphabet-uppercase"></i>
+                                    <h4>Nome:</h4>
+                                    <p><span id="spannome"></span></p>
+                                </div>
+                                
+                                
+<br>
+                                <div class="usuario">
+                                    <i class="bi bi-alphabet-uppercase"></i>
+                                    <h4>Nome Usuário:</h4>
+                                    <p><span id="spannomeUsuario"></span></p>
+                                </div>
+
+                                <div class="phone">
+                                    <i class="bi bi-cake2"></i>
+                                    <h4>Data Nascimento:</h4>
+                                    <p><span id="spandataNascimento"></span></p>
+                                </div>
+                                
+                                <div class="email">
+                                    <i class="bi bi-envelope"></i>
+                                    <h4>Email:</h4>
+                                    <p><span id="spanemail"></span></p>
+                                </div>
+                            
+                                    <div class="phone">
+                                    <i class="bi bi-phone"></i>
+                                    <h4>Telefone:</h4>
+                                    <p><span id="spantelefone"></span></p>
+                                </div>
+                                <br>
+                                <div class="setor">
+                                    <i class="bi bi-display"></i>
+                                    <h4>Cargo:</h4>
+                                    <p><span id="spancargo"></span></p>
+                                </div>
+                                <br>
+                               
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+                <!-- End dashboard Section -->
+
+            </main>
+            <!-- End #main -->
+
+            <!-- ======= Footer ======= -->
+            <footer id="footer">
+
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="row"></div>
+                    </div>
+                </div>
+
+                <!-- Rodapé -->
+                <footer id="footer">
+                    <div class="container d-md-flex py-4">
+
+                        <div class="me-md-auto text-center text-md-start">
+                            <div class="copyright">
+                                &copy; Copyright
+                                <strong>
+                                    <span>Wild Life</span></strong>. All Rights Reserved.
+                            </div>
+
+
+                  <script>
+                       
+         // Recuperar as informações do localStorage 
+         
+        var nomeSalvo = localStorage.getItem("nome");
+        var nomeUsuarioSalvo = localStorage.getItem("nomeUsuario");
+        var dataNascimentoSalvo= localStorage.getItem("dataNascimento");
+        var emailSalvo = localStorage.getItem("email");
+        var telefoneSalvo = localStorage.getItem("telefone");
+        var cargoSalvo = localStorage.getItem("cargo");
+
+         // Exibir as informações na página
+         
+        document.getElementById("spannome").innerText = nomeSalvo;
+        document.getElementById("spannomeUsuario").innerText = nomeUsuarioSalvo;
+        document.getElementById("spandataNascimento").innerText = dataNascimentoSalvo;
+        document.getElementById("spanemail").innerText = emailSalvo;
+        document.getElementById("spantelefone").innerText = telefoneSalvo;
+        document.getElementById("spancargo").innerText = cargoSalvo;
+                 </script>
+
+
+
+                        <!--Creditos da aplicação-->
+                            <div class="credits">
+                            
+                                Designed by
+                                <a href="https://bootstrapmade.com/">Equipe Love Start</a>
+                            </div>
+                        </div>
+                        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                            <a href="#" class="twitter">
+                                <i class="bx bxl-twitter"></i>
+                            </a>
+                            <a href="#" class="facebook">
+                                <i class="bx bxl-facebook"></i>
+                            </a>
+                            <a href="#" class="instagram">
+                                <i class="bx bxl-instagram"></i>
+                            </a>
+                            <a href="#" class="google-plus">
+                                <i class="bx bxl-skype"></i>
+                            </a>
+                            <a href="#" class="linkedin">
+                                <i class="bx bxl-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+
+
+                <script>
+                   
+                   //Escolher a imagem a partir da galeria
+
+                     function selectImage() {
+                          const inputFile = document.getElementById("inputFile");
+                          const selectedImage = document.getElementById("selectedImage");
+
+                      inputFile.onchange = function (e) {
+                          const file = e.target.files[0];
+                  if (file) {
+                          const reader = new FileReader();
+                    reader.onload = function (e) {
+                        selectedImage.src = e.target.result;
+                        selectedImage.style.display = "block";
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+
+            inputFile.click();
+        }
+
+                    // Pede permissão para o usuário abrir a camera, é salva a foto no perfil do dashboard
+                    
+                    function getUserMedia(options, successCallback, failureCallback) {
+                        var api = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+                        if (api) {
+                            return api.bind(navigator)(options, successCallback, failureCallback);
+                        }
+                    }
+
+                    var theStream;
+                    var bordavideo = document.getElementById('divdevideo');
+                    async function getStream() {
+                        var botaoft = document.getElementById('botaoTirarFoto');
+                        botaoft.style.display = "none";
+
+                        if (!navigator.getUserMedia && !navigator.webkitGetUserMedia && !navigator.mozGetUserMedia && !navigator.msGetUserMedia) {
+                            alert('User Media API not supported.');
+                            return;
+                        }
+
+                        var constraints = {
+                            video: true
+
+                        };
+
+                        getUserMedia(constraints, function (stream) {
+                            var mediaControl = document.querySelector('video');
+                            if ('srcObject' in mediaControl) {
+                                mediaControl.srcObject = stream;
+                                bordavideo.style.display = "block";
+                                aperecerBtn()
+
+                            } else if (navigator.mozGetUserMedia) {
+                                mediaControl.mozSrcObject = stream;
+                                bordavideo.style.display = "block";
+                                aperecerBtn()
+                            } else {
+                                mediaControl.src = (window.URL || window.webkitURL).createObjectURL(stream);
+                                bordavideo.style.display = "block";
+                                aperecerBtn()
+                            }
+                            theStream = stream;
+                            bordavideo.style.display = "block";
+                            aperecerBtn()
+                        }, function (err) {
+                            alert('Error: ' + err);
+                        });
+
+                    }
+
+                    async function aperecerBtn() {
+
+                        var btn = document.getElementById('botaoClick');
+                        btn.style.display = "block";
+                    }
+                    async function esconderBtn() {
+
+                        var btn = document.getElementById('botaoClick');
+                        btn.style.display = "none";
+                    }
+
+
+                    // Seleciona a foto é exibe na tela
+                    function takePhoto() {
+                        bordavideo.style.display = "none";
+                        esconderBtn();
+                        if (!('ImageCapture' in window)) {
+                            alert('ImageCapture is not available');
+                            return;
+                        }
+
+                        if (!theStream) {
+                            alert('Grab the video stream first!');
+                            return;
+                        }
+
+                        var theImageCapturer = new ImageCapture(theStream.getVideoTracks()[0]);
+
+                        theImageCapturer
+                            .takePhoto()
+                            .then(blob => {
+                                var theImageTag = document.getElementById("imagemExibida");
+                                theImageTag.src = URL.createObjectURL(blob);
+                                theImageTag.style.display = "block";
+                            })
+                            .catch(err => alert('Error: ' + err));
+                    }
+                </script>
+                
+<style>
+    
+
+  /*Posiciona a imagem selecionada*/ 
+
+  #selectedImage {
+
+    margin: 0 auto; 
+    display: block; 
+    margin-top: 20px;
+  }
+</style>
+</footer>
+<!-- End Footer -->
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+
+            </body>
+
+        </html>

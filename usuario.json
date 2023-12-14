@@ -1,0 +1,13 @@
+{
+    "nome" : "Cadastro",
+    "usuario" : "joao.silva",
+    "senha" : "123456",    
+    "data de nascimento" : "01/01/1990",
+    "email" : "joao.silva@gmail.com",
+    "telefone" : "(11) 9999-9999",
+    "estado civil" : "Solteiro",
+    "empresa" : "Suape",
+    "setor" : "Engenharia"
+
+ 
+}
